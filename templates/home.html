@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+  <title>Create Image with just text</title>
+</head>
+
+<body class="px-4 md:px-6 lg:px-8">
+  <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <a href="/">
+        <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
+        </svg>
+
+        <span class="font-semibold text-xl tracking-tight">Creator Image</span>
+      </a>
+    </div>
+
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="text-sm lg:flex-grow">
+        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Contact
+        </a>
+        <a href="./about" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          About
+        </a>
+        <a href="./privacy" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+          Privacy Policy
+        </a>
+      </div>
+
+    </div>
+  </nav>
+  
+  <main class="lg:mx-40 xl:mx-40 sm:mx-4">
+  <!-- HTML code for the app's user interface -->
+  <div class="md:flex md:justify-center">
+    <form id="image-form" class="my-10 w-full max-w-lg md:w-1/2">
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <label for="prompt" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-password">
+          Describe Image</label>
+        <input
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          type="textarea" id="prompt" name="prompt" placeholder="A red bird" required>
+        <br>
+        <label for="size">Size:</label>
+        <input
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          type="text" id="size" name="size" value="512x512">
+        <br>
+        <button type="submit"
+          class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+          Generate image
+        </button>
+        <!-- <button type="button" id="download-button" disabled class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border- hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download image</button> -->
+        <!-- <textarea id="message" rows="10" class=" mt-10 block p-2.5 w-6/12 text-xl text-gray-900 bg-gray-50 rounded-lg border border-gray-700 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="e.g A red bird"></textarea> -->
+        <!-- <div>
+        <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border- hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
+      </div> -->
+      </div>
+  </div>
+  </form>
+
+
+  <!-- Add this to your HTML file -->
+  <div id="loading-indicator" style="display: none;"
+    class="flex items-center justify-center p-4 h-12 w-64 rounded-full bg-gray-100 mx-auto mb-8">
+    <div class="flex items-center">
+      <div class="mr-4 text-xl font-bold text-teal-500">Processing...</div>
+      <div class="inline-block w-6 h-6 rounded-full bg-teal-500 animate-spin">
+        <div class="relative w-full h-full rounded-full border-4 border-dashed border-teal-600 animate-bounce p-2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add this to your HTML file -->
+  <!-- <div class="flex justify-center md:flex md:justify-center" id="image-container" style="display: none;">
+  <img src="{{ image_url }}" id="image" class="md:w-1/2">
+  <button id="download-button" disabled>Download</button>
+</div> -->
+
+
+
+  <div id="image-container" class="w-full md:w-1/2 mx-auto" style="display: none;">
+    <img src="{{ image_url }}" id="image">
+    <button id="download-button" disabled="true"
+      class="mx-auto my-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+      <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+      </svg>
+      <span>Download</span>
+    </button>
+
+  </div>
+
+  <div class="lg:mx-4 my-20 ">
+    <h2 class="text-2xl font-bold">How the OpenAI Create Image API Works</h2>
+
+    <p class="mt-2 text-base leading-6">The OpenAI Create Image API is a powerful tool for generating high-quality
+      images based on text descriptions or templates. It uses artificial intelligence to analyze the input and generate
+      images that match the specified criteria.</p>
+
+    <p class="mt-2 text-base leading-6">One of the main benefits of the Create Image API is its ability to generate a
+      wide range of images, from simple shapes and patterns to more complex scenes and objects. This makes it ideal for
+      use in a variety of applications, including graphic design, data visualization, and content creation.</p>
+
+    <p class="mt-2 text-base leading-6">To use the Create Image API, you simply provide a description or template and
+      specify any additional parameters, such as image size and format. The API then generates the image and returns it
+      to you in the desired format.</p>
+
+    <h3 class="mt-4 text-lg font-bold">Limitations of the OpenAI Create Image API</h3>
+
+    <p class="mt-2 text-base leading-6">One important limitation to keep in mind when using the Create Image API is that
+      it does not generate images of real-world people or celebrities. This means that you cannot use the API to
+      generate images of specific individuals or well-known figures.</p>
+
+    <p class="mt-2 text-base leading-6">Instead, the API is designed to generate images of generic people or objects,
+      based on the descriptions or templates provided. This allows you to create images that are consistent with your
+      brand or theme, while still maintaining a level of flexibility and creativity.</p>
+
+    <h3 class="mt-4 text-lg font-bold">Conclusion</h3>
+
+    <p class="mt-2 text-base leading-6">Overall, the OpenAI Create Image API is a powerful and easy-to-use tool for
+      generating high-quality images based on text descriptions or templates. While it has some limitations, it is a
+      valuable resource for businesses and individuals looking to create custom images with minimal effort.</p>
+  </div>
+</main>
+
+  <footer>
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <a href="/">
+          <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
+          </svg>
+
+          <span class="font-semibold text-xl tracking-tight">Creator Image</span>
+        </a>
+      </div>
+      </div>
+      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+          <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            Contact
+          </a>
+          <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            About
+          </a>
+          <a href="./privacy-policy.html" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+            Privacy Policy
+          </a>
+        </div>
+      </div>
+    </nav>
+  </footer>
+  <script src="/static/home.js"></script>
+</body>
+
+</html>
