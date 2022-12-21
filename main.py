@@ -4,14 +4,14 @@ from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from fastapi.staticfiles import StaticFiles
 import openai
+import os
 
-from dotenv import dotenv_values
+from dotenv import load_dotenv
 
-# Load the values from the .env file
-env_values = dotenv_values()
+load_dotenv()
 
 # Get the API key from the env_values dictionary
-api_key = env_values[API_KEY]
+api_key = os.getenv("API_KEY")
 
 app = FastAPI()
 
