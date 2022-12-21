@@ -11,7 +11,7 @@ from dotenv import dotenv_values
 env_values = dotenv_values()
 
 # Get the API key from the env_values dictionary
-api_key = env_values["API_KEY"]
+api_key = env_values[API_KEY]
 
 app = FastAPI()
 
