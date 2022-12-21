@@ -44,7 +44,7 @@ async def home(request: Request):
     context = {"request": request, "image_url": ""}
     return templates.TemplateResponse("about.html", context)
 
-@app.get("/about", response_class=HTMLResponse)
+@app.get("/contact", response_class=HTMLResponse)
 async def home(request: Request):
     # Render the home.html template with the request and image_url variables
     context = {"request": request, "image_url": ""}
