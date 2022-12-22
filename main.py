@@ -58,8 +58,6 @@ async def get_robots_txt():
         Allow: /*
     """
 
-
-
 # Define the endpoint for generating images
 @app.post("/create_image")
 def create_image(request: ImageRequest):
