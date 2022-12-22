@@ -50,11 +50,15 @@ async def home(request: Request):
     context = {"request": request, "image_url": ""}
     return templates.TemplateResponse("contact.html", context)
 
-@app.get("/robots.txt", response_class=HTMLResponse)
-async def home(request: Request):
-    # Render the home.html template with the request and image_url variables
-    context = {"request": request, "image_url": ""}
-    return templates.TemplateResponse("robots.txt", context)
+
+@app.get("/robots.txt")
+async def get_robots_txt():
+    return """
+        User-agent: *
+        Allow: /*
+    """
+
+
 
 # Define the endpoint for generating images
 @app.post("/create_image")
