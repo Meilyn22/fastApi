@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI, Request, HTTPException, Response
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
@@ -33,22 +33,28 @@ async def home(request: Request):
     return templates.TemplateResponse("home.html", context)
 
 @app.get("/privacy", response_class=HTMLResponse)
-async def home(request: Request):
+async def privacy(request: Request):
     # Render the home.html template with the request and image_url variables
     context = {"request": request, "image_url": ""}
     return templates.TemplateResponse("privacy-policy.html", context)
 
 @app.get("/about", response_class=HTMLResponse)
-async def home(request: Request):
+async def about(request: Request):
     # Render the home.html template with the request and image_url variables
     context = {"request": request, "image_url": ""}
     return templates.TemplateResponse("about.html", context)
 
 @app.get("/contact", response_class=HTMLResponse)
-async def home(request: Request):
+async def contact(request: Request):
     # Render the home.html template with the request and image_url variables
     context = {"request": request, "image_url": ""}
     return templates.TemplateResponse("contact.html", context)
+
+@app.get("/morgage", response_class=HTMLResponse)
+async def mortgage_calculator(request: Request):
+    # Render the home.html template with the request and image_url variables
+    context = {"request": request, "image_url": ""}
+    return templates.TemplateResponse("morgage.html", context)
 
 
 @app.get("/robots.txt")
