@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Easily create and edit images with our powerful create image API on schooltins.com. Whether you're a professional designer or just looking to spruce up your social media posts, our API has the tools you need to create stunning visuals. Plus, with a user-friendly interface and intuitive controls, anyone can use it - no prior design experience required!">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Create Image with just text</title>
+</head>
+
+<body class="px-4 md:px-6 lg:px-8">
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <a href="/">
+                <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
+                </svg>
+
+                <span class="font-semibold text-xl tracking-tight">Creator Image</span>
+            </a>
+        </div>
+
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            <div class="text-sm lg:flex-grow">
+                <a href="./contact"
+                    class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    Contact
+                </a>
+                <a href="./about" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    About
+                </a>
+                <a href="./privacy" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                    Privacy Policy
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <body class="px-4 md:px-6 lg:px-8">
+      <form id="mortgage-calculator-form" class="mb-4">
+        <div class="flex flex-col mb-4">
+          <label class="text-gray-700 text-sm font-bold mb-2" for="price">
+            Property Price:
+          </label>
+          <input id="price" class="form-input bg-gray-200 rounded-md focus:outline-none focus:shadow-outline-teal-500" type="text" placeholder="$300,000" required>
+        </div>
+    
+        <div class="flex flex-col mb-4">
+          <label class="text-gray-700 text-sm font-bold mb-2" for="down-payment">
+            Down Payment:
+          </label>
+          <input id="down-payment" class="form-input bg-gray-200 rounded-md focus:outline-none focus:shadow-outline-teal-500" type="text" placeholder="$60,000" required>
+        </div>
+    
+        <div class="flex flex-col mb-4">
+          <label class="text-gray-700 text-sm font-bold mb-2" for="interest-rate">
+            Interest Rate:
+          </label>
+          <input id="interest-rate" class="form-input bg-gray-200 rounded-md focus:outline-none focus:shadow-outline-teal-500" type="text" placeholder="3.5%" required>
+        </div>
+    
+        <div class="flex flex-col mb-4">
+          <label class="text-gray-700 text-sm font-bold mb-2" for="term">
+            Loan Term:
+          </label>
+          <select id="term" class="form-select bg-gray-200 rounded-md focus:outline-none focus:shadow-outline-teal-500">
+            <option>30-yr fixed</option>
+            <option>15-yr fixed</option>
+            <option>ARM</option>
+          </select>
+        </div>
+    
+        <div class="flex flex-col mb-4">
+          <label class="text-gray-700 text-sm font-bold mb-2" for="insurance">
+            Insurance:
+          </label>
+          <input id="insurance" class="form-input bg-gray-200 rounded-md focus:outline-none focus:shadow-outline-teal-500" type="text" placeholder="$50/month">
+        </div>
+        <div class="flex flex-col mb-4">
+          <label class="text-gray-700 text-sm font-bold mb-2" for="property-tax">
+            Property Tax:
+          </label>
+          <input id="property-tax" class="form-input bg-gray-200 rounded-md focus:outline-none focus:shadow-outline-teal-500" type="text" placeholder="$50/month">
+        </div>
+        <div class="flex flex-col mb-4">
+          <label class="text-gray-700 text-sm font-bold mb-2" for="hoa">
+            HOA Fees:
+          </label>
+          <input id="hoa" class="form-input bg-gray-200 rounded-md focus:outline-none focus:shadow-outline-teal-500" type="text" placeholder="$50/month">
+        </div>
+        
+        <div class="flex flex-col mb-4">
+          <label class="text-gray-700 text-sm font-bold mb-2" for="pmi">
+            PMI:
+          </label>
+          <input id="pmi" class="form-input bg-gray-200 rounded-md focus:outline-none focus:shadow-outline-teal-500" type="text" placeholder="$50/month">
+        </div>
+        
+        <div class="flex justify-end">
+          <button type="submit" class="px-4 py-2 font-bold text-white bg-teal-500 rounded-full hover:bg-teal-700 focus:outline-none focus:shadow-outline-teal-500">
+            Calculate
+          </button>
+        </div>
+      </form>
+
+    <div id="result" class="hidden mt-4 text-center text-2xl font-bold text-purple-500">
+      Loan Monthly Payment: $<span id="loan-total-monthly-payment"></span>
+      <br>
+      Total Monthly Payment: $<span id="total-monthly-payment"></span>
+      <br>
+      Total Payment: $<span id="total-payments"></span>
+      <br>
+      Insurance&Fees Paid: $<span id="insurance-and-fees"></span>
+      <br>
+      Yearly Total Monthly Payment: $<span id="yearly-total-monthly-payment"></span>
+    </div> 
+
+    <footer>
+        <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+          <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <a href="/">
+              <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
+              </svg>
+    
+              <span class="font-semibold text-xl tracking-tight">Creator Image</span>
+            </a>
+          </div>
+          
+          <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            <div class="text-sm lg:flex-grow">
+              <a href="./contact" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                Contact
+              </a>
+              <a href="./about" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                About
+              </a>
+              <a href="./privacy" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                Privacy Policy
+              </a>
+            </div>
+          </div>
+        </nav>
+      </footer>
+      <script src="/static/morgage.js"></script>
+    </body>
+    
+    </html>
